@@ -1,0 +1,25 @@
+* {
+    color: gray;
+    background-color: whitesmoke;
+}
+
+h1 {
+    color: white;
+    border: solid 1px #00ced1;
+    background-color: #00ced1;
+}
+
+h2 {
+    border-bottom: 1px solid whitesmoke;
+    background-color: white;
+}
+
+h3 {
+    color: #00ced1;
+    border: 1px solid #ddffff;
+    background-color: #ddffff;
+}
+
+p, li, a {
+    background-color: white;
+}
