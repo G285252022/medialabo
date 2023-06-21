@@ -1,0 +1,15 @@
+* {
+    color: gray;
+}
+
+.a {
+    border-bottom: 1px solid whitesmoke;
+}
+
+.b {
+    border-bottom: 1px dashed whitesmoke;
+}
+
+.c {
+    color: whitesmoke;
+}

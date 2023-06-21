@@ -10,17 +10,12 @@ h1 {
 
 h2 {
     border-bottom: 1px solid whitesmoke;
-    background-color: white;
 }
 
 h3 {
     color: #00ced1;
     border: 1px solid #ddffff;
     background-color: #ddffff;
-}
-
-p, li, a {
-    background-color: white;
 }
 
 a:link {
