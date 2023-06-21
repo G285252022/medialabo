@@ -1,15 +1,15 @@
 * {
-    color: gray;
+    color: dimgray;
 }
 
 .a {
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid silver;
 }
 
 .b {
-    border-bottom: 1px dashed whitesmoke;
+    border-bottom: 1px dashed silver;
 }
 
 .c {
-    color: whitesmoke;
+    color: gray;
 }
