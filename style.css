@@ -1,6 +1,5 @@
 * {
     color: gray;
-    background-color: whitesmoke;
 }
 
 h1 {
@@ -22,4 +21,12 @@ h3 {
 
 p, li, a {
     background-color: white;
+}
+
+a:link {
+    color: #00ced1;
+}
+
+a:visited {
+    color: purple;
 }
