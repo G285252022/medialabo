@@ -29,6 +29,10 @@ for(let s of l) {
 	s.remove();
 }
 
-
 // 練習4-5 箇条書き追加プログラム
-
+let ul = document.querySelector('ul#location');
+for(let t of data) {
+	let li = document.createElement('li');
+	li.textContent = t.name + '... 緯度' + t.lat + ', 経度' + t.lng;
+	ul.insertAdjacentElement('beforeend', li);
+}
