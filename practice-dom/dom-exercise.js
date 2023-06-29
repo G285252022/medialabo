@@ -21,12 +21,13 @@ h2.insertAdjacentElement('afterend', p);
 p.style.textEmphasis='sesame green';
 
 // 練習4-3 写真表作成プログラム
+
+
+// 練習4-4 箇条書き削除プログラム
 let l = document.querySelectorAll('ul#location > li');
 for(let s of l) {
 	s.remove();
 }
-
-// 練習4-4 箇条書き削除プログラム
 
 
 // 練習4-5 箇条書き追加プログラム
