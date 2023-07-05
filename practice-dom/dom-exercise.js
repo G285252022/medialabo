@@ -21,7 +21,22 @@ h2.insertAdjacentElement('afterend', p);
 p.style.textEmphasis='sesame green';
 
 // 練習4-3 写真表作成プログラム
-
+let div = document.querySelector('div#phototable');
+let p1 = document.createElement('p');
+let p2 = document.createElement('p');
+let p3 = document.createElement('p');
+div.insertAdjacentElement('beforeend', p1);
+div.insertAdjacentElement('beforeend', p2);
+div.insertAdjacentElement('beforeend', p3);
+let img1 = document.createElement('img');
+let img2 = document.createElement('img');
+let img3 = document.createElement('img');
+img1.setAttribute('src', 'taro.png');
+img2.setAttribute('src', 'jiro.png');
+img3.setAttribute('src', 'hanako.png');
+p1.insertAdjacentElement('beforeend', img1);
+p2.insertAdjacentElement('beforeend', img2);
+p3.insertAdjacentElement('beforeend', img3);
 
 // 練習4-4 箇条書き削除プログラム
 let l = document.querySelectorAll('ul#location > li');
