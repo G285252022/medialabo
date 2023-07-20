@@ -204,6 +204,14 @@ let data = {
 let b1 = document.querySelector('button#kennsaku');
 b1.addEventListener('click', hyoji);
 function hyoji() {
+  let u = document.querySelectorAll('ul');
+  let l = document.querySelectorAll('li');
+  for (let us of u) {
+    us.remove();
+  }
+  for (let ls of l) {
+    ls.remove();
+  }
   let v;
   let gs = document.querySelectorAll('input[name="genre"]');
   for (let g of gs) {
