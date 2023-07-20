@@ -250,7 +250,6 @@ function showResult(resp) {
     let li7 = document.createElement('li');
     let li8 = document.createElement('li');
     let li9 = document.createElement('li');
-    let li10 = document.createElement('li');
     li2.textContent = '検索結果' + (i + 1) + '件目';
     li3.textContent = 'アクセス: ' + data.results.shop[i].access;
     li4.textContent = '住所: ' + data.results.shop[i].address;
@@ -259,9 +258,8 @@ function showResult(resp) {
     li7.textContent = 'ジャンル: ' + data.results.shop[i].genre.name;
     li8.textContent = '営業時間: ' + data.results.shop[i].open;
     li9.textContent = '最寄駅: ' + data.results.shop[i].station_name;
-    li10.textContent = 'サブジャンル: ' + data.results.shop[i].sub_genre.name;
     li7.setAttribute('class', "c");
-    li10.setAttribute('class', "b");
+    li9.setAttribute('class', "b");
     ul1.insertAdjacentElement('beforeend', ul2);
     ul2.insertAdjacentElement('beforeend', li2);
     ul2.insertAdjacentElement('beforeend', ul3);
@@ -272,7 +270,6 @@ function showResult(resp) {
     ul3.insertAdjacentElement('beforeend', li7);
     ul3.insertAdjacentElement('beforeend', li8);
     ul3.insertAdjacentElement('beforeend', li9);
-    ul3.insertAdjacentElement('beforeend', li10);
   }
 }
 
