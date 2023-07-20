@@ -204,78 +204,84 @@ let data = {
 let b1 = document.querySelector('button#kennsaku');
 b1.addEventListener('click', hyoji);
 function hyoji() {
-  let b1 = document.querySelector('button#kennsaku');
+  let v;
+  let gs = document.querySelectorAll('input[name="genre"]');
+  for (let g of gs) {
+    if (g.checked) {
+      v = g.value;
+    }
+  }
+  // URL を設定
+  let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/' + v + '.json';
+
+  // 通信開始
+  axios.get(url)
+      .then(showResult)   // 通信成功
+      .catch(showError)   // 通信失敗
+      .then(finish);      // 通信の最後の処理
+}
+
+// 通信が成功した時の処理
+function showResult(resp) {
+  // サーバから送られてきたデータを出力
+  let data = resp.data;
+
+  // data が文字列型なら，オブジェクトに変換する
+  if (typeof data === 'string') {
+      data = JSON.parse(data);
+  }
+
+  let ken = data.results.shop.length;
   let div = document.querySelector('div#result');
   let ul1 = document.createElement('ul');
-  let ul2 = document.createElement('ul');
-  let ul3 = document.createElement('ul');
-  let ul4 = document.createElement('ul');
-  let ul5 = document.createElement('ul');
   let li1 = document.createElement('li');
-  let li2 = document.createElement('li');
-  let li3 = document.createElement('li');
-  let li4 = document.createElement('li');
-  let li5 = document.createElement('li');
-  let li6 = document.createElement('li');
-  let li7 = document.createElement('li');
-  let li8 = document.createElement('li');
-  let li9 = document.createElement('li');
-  let li10 = document.createElement('li');
-  let li11 = document.createElement('li');
-  let li12 = document.createElement('li');
-  let li13 = document.createElement('li');
-  let li14 = document.createElement('li');
-  let li15 = document.createElement('li');
-  let li16 = document.createElement('li');
-  let li17 = document.createElement('li');
-  let li18 = document.createElement('li');
-  let li19 = document.createElement('li');
-  li1.textContent = 'グルメ情報（検索結果は2件）';
-  li2.textContent = '検索結果1件目';
-  li3.textContent = '検索結果2件目';
-  li4.textContent = 'アクセス: ' + data.results.shop[0].access;
-  li5.textContent = '住所: ' + data.results.shop[0].address;
-  li6.textContent = '予算: ' + data.results.shop[0].budget.name;
-  li7.textContent = 'キャッチコピー: ' + data.results.shop[0].catch;
-  li8.textContent = 'ジャンル: ' + data.results.shop[0].genre.name;
-  li9.textContent = '営業時間: ' + data.results.shop[0].open;
-  li10.textContent = '最寄駅: ' + data.results.shop[0].station_name;
-  li11.textContent = 'サブジャンル: ' + data.results.shop[0].sub_genre.name;
-  li12.textContent = 'アクセス: ' + data.results.shop[1].access;
-  li13.textContent = '住所: ' + data.results.shop[1].address;
-  li14.textContent = '予算: ' + data.results.shop[1].budget.name;
-  li15.textContent = 'キャッチコピー: ' + data.results.shop[1].catch;
-  li16.textContent = 'ジャンル: ' + data.results.shop[1].genre.name;
-  li17.textContent = '営業時間: ' + data.results.shop[1].open;
-  li18.textContent = '最寄駅: ' + data.results.shop[1].station_name;
-  li19.textContent = 'サブジャンル: ' + data.results.shop[1].sub_genre.name;
+  li1.textContent = 'グルメ情報（検索結果は' + ken + '件）';
   li1.setAttribute('class', "a");
-  li8.setAttribute('class', "c");
-  li11.setAttribute('class', "b");
-  li16.setAttribute('class', "c");
-  li19.setAttribute('class', "b");
   div.insertAdjacentElement('beforeend', ul1);
   ul1.insertAdjacentElement('beforeend', li1);
-  ul1.insertAdjacentElement('beforeend', ul2);
-  ul1.insertAdjacentElement('beforeend', ul4);
-  ul2.insertAdjacentElement('beforeend', li2);
-  ul2.insertAdjacentElement('beforeend', ul3);
-  ul3.insertAdjacentElement('beforeend', li4);
-  ul3.insertAdjacentElement('beforeend', li5);
-  ul3.insertAdjacentElement('beforeend', li6);
-  ul3.insertAdjacentElement('beforeend', li7);
-  ul3.insertAdjacentElement('beforeend', li8);
-  ul3.insertAdjacentElement('beforeend', li9);
-  ul3.insertAdjacentElement('beforeend', li10);
-  ul3.insertAdjacentElement('beforeend', li11);
-  ul4.insertAdjacentElement('beforeend', li3);
-  ul4.insertAdjacentElement('beforeend', ul5);
-  ul5.insertAdjacentElement('beforeend', li12);
-  ul5.insertAdjacentElement('beforeend', li13);
-  ul5.insertAdjacentElement('beforeend', li14);
-  ul5.insertAdjacentElement('beforeend', li15);
-  ul5.insertAdjacentElement('beforeend', li16);
-  ul5.insertAdjacentElement('beforeend', li17);
-  ul5.insertAdjacentElement('beforeend', li18);
-  ul5.insertAdjacentElement('beforeend', li19);
+  for (let i = 0; i < ken; i++) {
+    let ul2 = document.createElement('ul');
+    let ul3 = document.createElement('ul');
+    let li2 = document.createElement('li');
+    let li3 = document.createElement('li');
+    let li4 = document.createElement('li');
+    let li5 = document.createElement('li');
+    let li6 = document.createElement('li');
+    let li7 = document.createElement('li');
+    let li8 = document.createElement('li');
+    let li9 = document.createElement('li');
+    let li10 = document.createElement('li');
+    li2.textContent = '検索結果' + (i + 1) + '件目';
+    li3.textContent = 'アクセス: ' + data.results.shop[i].access;
+    li4.textContent = '住所: ' + data.results.shop[i].address;
+    li5.textContent = '予算: ' + data.results.shop[i].budget.name;
+    li6.textContent = 'キャッチコピー: ' + data.results.shop[i].catch;
+    li7.textContent = 'ジャンル: ' + data.results.shop[i].genre.name;
+    li8.textContent = '営業時間: ' + data.results.shop[i].open;
+    li9.textContent = '最寄駅: ' + data.results.shop[i].station_name;
+    li10.textContent = 'サブジャンル: ' + data.results.shop[i].sub_genre.name;
+    li7.setAttribute('class', "c");
+    li10.setAttribute('class', "b");
+    ul1.insertAdjacentElement('beforeend', ul2);
+    ul2.insertAdjacentElement('beforeend', li2);
+    ul2.insertAdjacentElement('beforeend', ul3);
+    ul3.insertAdjacentElement('beforeend', li3);
+    ul3.insertAdjacentElement('beforeend', li4);
+    ul3.insertAdjacentElement('beforeend', li5);
+    ul3.insertAdjacentElement('beforeend', li6);
+    ul3.insertAdjacentElement('beforeend', li7);
+    ul3.insertAdjacentElement('beforeend', li8);
+    ul3.insertAdjacentElement('beforeend', li9);
+    ul3.insertAdjacentElement('beforeend', li10);
+  }
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+  console.log(err);
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+  console.log('Ajax 通信が終わりました');
 }
